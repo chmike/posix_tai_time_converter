@@ -29,3 +29,19 @@ for a very long duration get a properly updated leap second table.
 Dynamic loading and updating of the leap second table might be
 implemented in future version of this files.
 
+### Compilation
+
+To compile and run use the following command
+
+    gcc -O3 main.c posix_tai.c && ./a.out
+    
+It will first output the C code for the hardcoded table and the run the unit
+tests.
+
+If the hardcoded leap second table is outdated, the unit test will fail. You then should download the latest version of the `leap-seconds.list` file at 
+https://www.ietf.org/timezones/data/leap-seconds.list.
+
+By running the test again, you will get as first output the new version of
+the code for the table. Replace the corresponding source code in posix_tai.c
+and run the test again. The unit test should then succeed.
+
