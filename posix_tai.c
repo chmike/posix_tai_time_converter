@@ -10,12 +10,12 @@
  * and generated from the file with the function
  * generate_leap_second_tbl() below.
  */
-static const size_t nleap_seconds = 27;
+static const size_t nleap_seconds = 28;
 struct leap_second_t {
     time_t posix, tai, delta;
 };
-struct leap_second_t latest_leap = {1435708800, 1435708836, 36};
-struct leap_second_t validity_limit = {1467072000, 1467072036, 36};
+struct leap_second_t latest_leap = {1483228800, 1483228837, 37};
+struct leap_second_t validity_limit = {1577491200, 1577491237, 37};
 static const struct leap_second_t leap_seconds[] = {
     {  63072000,   63072010,  10}, // 2272060800    10  # 1 Jan 1972
     {  78796800,   78796811,  11}, // 2287785600    11  # 1 Jul 1972
@@ -43,7 +43,8 @@ static const struct leap_second_t leap_seconds[] = {
     {1136073600, 1136073633,  33}, // 3345062400    33  # 1 Jan 2006
     {1230768000, 1230768034,  34}, // 3439756800    34  # 1 Jan 2009
     {1341100800, 1341100835,  35}, // 3550089600    35  # 1 Jul 2012
-    {1435708800, 1435708836,  36}  // 3644697600    36  # 1 Jul 2015
+    {1435708800, 1435708836,  36}, // 3644697600    36  # 1 Jul 2015
+    {1483228800, 1483228837,  37}  // 3692217600    37  # 1 Jan 2017
 };
 
 
