@@ -10,7 +10,6 @@
  * and generated from the file with the function
  * generate_leap_second_tbl() below.
  */
-static const size_t nleap_seconds = 28;
 struct leap_second_t {
     time_t posix, tai, delta;
 };
@@ -191,7 +190,6 @@ void generate_leap_second_tbl(const char *leap_seconds_list)
     } else {
         size_t i;
         puts("");
-        printf("static const size_t nleap_seconds = %zd;\n", tbl->n);
         printf("struct leap_second_t {time_t posix, tai, delta;};\n");
         struct val_t *p = tbl->v + tbl->n - 1;
         printf("struct leap_second_t latest_leap = {%lld, %lld, %lld};\n",
