@@ -14,7 +14,9 @@ struct leap_second_t {
     time_t posix, tai, delta;
 };
 static struct leap_second_t latest_leap = {1483228800, 1483228837, 37};
-static struct leap_second_t validity_limit = {1577491200, 1577491237, 37};
+
+// IERS Bulletin C announced no leap second for 2022-07-01
+static struct leap_second_t validity_limit = {1656633600, 1656633637, 37};
 static const struct leap_second_t leap_seconds[] = {
     {  63072000,   63072010,  10}, // 2272060800    10  # 1 Jan 1972
     {  78796800,   78796811,  11}, // 2287785600    11  # 1 Jul 1972
