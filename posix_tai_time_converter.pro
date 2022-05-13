@@ -4,10 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.c \
-    posix_tai.c
+    paconv.c
 
 HEADERS += \
-    posix_tai.h
+    paconv.h
 
 DISTFILES += \
     leap-seconds.list
