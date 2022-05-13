@@ -29,7 +29,7 @@ https://www.ietf.org/timezones/data/leap-seconds.list with a simple
 `wget https://www.ietf.org/timezones/data/leap-seconds.list`. 
 
 On Debian and derived systems, this file is already available as
-`/usr/share/timezone/leap-second.list`, and it is updated as needed.
+`/usr/share/timezone/leap-seconds.list`, and it is updated as needed.
 Users of other operating systems will have to set up a cron job to 
 get an equivalent updated file. Updating it every June and December
 is enough.
@@ -96,5 +96,11 @@ To compile and execute the unit test, run the following command
 
 The code has been extensively tested. There is a small risk to get invalid
 results if the input file is invalid.
+
+## TODO
+
+- [ ] Add code to import leap seconds from /usr/share/zoneinfo/leapseconds. It 
+is provided by default with the tzdata library. It is unfortunately less
+convenient to decode than `leap-seconds.list`.
 
 
