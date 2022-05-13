@@ -99,7 +99,7 @@ results if the input file is invalid.
 
 ## TODO
 
-- [ ] Add code to import leap seconds from /usr/share/zoneinfo/leapseconds. It 
+- [ ] Add code to import leap seconds from `/usr/share/zoneinfo/leapseconds`. It 
 is provided by default with the tzdata library. It is unfortunately less
 convenient to decode than `leap-seconds.list`.
 
