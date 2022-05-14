@@ -36,19 +36,17 @@ is enough.
 
 ## API
 
-**`int paconv_load_leap_seconds(const char *leap_second_list_file_name)`**
+**`int paconv_init(const char *file_name)`**
 
-The `paconv_load_leap_seconds` function loads the leap second list 
-from the file whose name is given as argument. It returns 0 if it succeeds
-and -1 in case of failure. It is required to call this function before any
-of the conversion functions. 
+The `paconv_init` function initializes paconv by loading the leap second list
+needed for the conversion. If `file_name` is NULL, it tries to load them from
+the files "/usr/share/zoneinfo/leap-seconds.list" or 
+"/usr/share/zoneinfo/leapseconds".
 
-On Debian and derived systems, the path to the file is 
-`/usr/share/timezone/leap-second.list`. It it updated by the operating
-system. On other systems, the user is responsible to download the file
-with the command `wget https://www.ietf.org/timezones/data/leap-seconds.list`.
-It is suggested to use a cron job to automatically update this file
-in June and December.
+If the OS doesn't have one of these files, you'll have to download the file
+from https://www.ietf.org/timezones/data/leap-seconds.list with a simple `wget`
+command and provid the path to the file as argument.
+A cron job executed every six months may keep it up to date.
 
 **`const time_t paconv_invalid`**
 
@@ -96,11 +94,3 @@ To compile and execute the unit test, run the following command
 
 The code has been extensively tested. There is a small risk to get invalid
 results if the input file is invalid.
-
-## TODO
-
-- [ ] Add code to import leap seconds from `/usr/share/zoneinfo/leapseconds`. It 
-is provided by default with the tzdata library. It is unfortunately less
-convenient to decode than `leap-seconds.list`.
-
-

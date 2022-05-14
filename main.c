@@ -92,9 +92,9 @@ int paconv_test() {
 
 
 int main(void){
-  int res = paconv_load_leap_seconds("./leap-seconds.list");
+  int res = paconv_init(NULL);
   if (res < 0) {
-    fprintf(stderr, "Failed loading leap-seconds list: %d\n", res);
+    fprintf(stderr, "Failed initializing paconv: %d\n", res);
     return 1;
   }
   res = paconv_test();

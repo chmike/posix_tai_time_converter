@@ -4,12 +4,13 @@
 #include <time.h>
 #include <stdbool.h>
 
-// paconv_load_leap_seconds loads the leap second list from the file
-// whose name is given as argument. The latest file may be downloaded
-// from https://www.ietf.org/timezones/data/leap-seconds.list.
-// On Debian and derived OS the latest file version is available as
-// "/usr/share/timezone/leap-second.list". 
-int paconv_load_leap_seconds(const char *leap_second_list_file_name);
+// paconv_init initializes paconv by loading the leap second list.
+// If file_name is NULL, it tries to load them from the file
+// "/usr/share/zoneinfo/leap-seconds.list" or "/usr/share/zoneinfo/leapseconds".
+// If the OS doesn't have one of these files, you'll have to download the file
+// from https://www.ietf.org/timezones/data/leap-seconds.list with a simple wget.
+// A cron job executed every six months may keep it up to date.
+int paconv_init(const char *file_name);
 
 // paconv_invalid is an invalid time_t value.
 extern const time_t paconv_invalid;
