@@ -34,6 +34,15 @@ Users of other operating systems will have to set up a cron job to
 get an equivalent updated file. Updating it every June and December
 is enough.
 
+The initialization function will also look for the file "/usr/share/zoneinfo/leapseconds"
+that is available on most unix flavors and provided with the tzdata package.
+It is periodically updated when the OS packages are updated. 
+
+The leap second list has a validity limit. When given a posix time or 
+tai time beyond the limit, the functions will return the `paconv_invalid` value.
+It is a `time_t` value with all bits set to 1. It is thus not possible 
+to convert time in the future.
+
 ## API
 
 **`int paconv_init(const char *file_name)`**
